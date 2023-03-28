@@ -155,9 +155,13 @@ def mark(window_size=(2000, 1000)):
 
         if cur_label != -1:
             cv2.putText(mark_image, str(cur_label),
-                        (mark_image_width // 2 - 10, mark_image_height // 2 - 10),
+                        (mark_image_width // 2 - 180, mark_image_height // 2 + 50),
                         cv2.FONT_HERSHEY_SIMPLEX,
-                        5, COLORMAPS[cur_label], 3)
+                        15, COLORMAPS[cur_label], 15)
+        cv2.putText(mark_image, f'{idx+1}/{test_length}',
+                        (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        2, (0, 255, 255), 5)
         while 1:
             cv2.imshow('mark', mark_image)
             key = cv2.waitKey(0)
@@ -172,6 +176,7 @@ def mark(window_size=(2000, 1000)):
         elif key == 27: break
         elif key == 111:
             results = save_results(results, result_dict, 'test.csv')
+            print('Saved results!')
         idx = max(0, idx)
         idx = min(test_length-1, idx)
     save_results(results, result_dict, 'test.csv')
