@@ -245,9 +245,9 @@ if __name__ == '__main__':
     if not os.path.exists(IMAGE_CACHE_DIR):
         os.mkdir(IMAGE_CACHE_DIR)
 
-    download_image_cache()
+    # download_image_cache()
     # split_xlsx('test.xlsx')
-    # mark()
+    mark()
     # compare_with_xlsx('jiu.xlsx', 'test_1.xlsx')
     # while 1:
     #     cv2.imshow('', np.zeros((100, 100)))
